@@ -4,10 +4,10 @@ const { User } = require('../../models');
 // create user
 router.post('/', async (req, res) => {
   const { username, password } = req.body;
-  console.log(username);
-  console.log(password);
+
   try {
-    res.json({message: 'complete'})
+    
+    res.json({ message: 'complete' })
   } catch (err) {
     res.status(400).json(err);
   }
