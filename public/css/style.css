@@ -1,0 +1,20 @@
+:root {
+    --primary-color: #F0E9D2;
+    --secondary-color: #678983;
+    --tertiary-color: #181D31;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--tertiary-color);
+}
+
+body {
+    margin: 5px;
+    background-color: var(--primary-color)
+}
+
+nav {
+    border: 5px solid var(--tertiary-color);
+}
