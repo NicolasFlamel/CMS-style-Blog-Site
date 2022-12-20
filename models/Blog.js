@@ -13,10 +13,11 @@ Blog.init(
     },
     title: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     body: {
-      type: DataTypes.STRING
+      type: DataTypes.TEXT,
+      allowNull: false,
     },
     dateCreated: {
       type: DataTypes.DATE,

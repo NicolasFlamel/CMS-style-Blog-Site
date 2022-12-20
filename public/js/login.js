@@ -30,7 +30,8 @@ const signup = async event => {
     if (response.ok) {
         document.location.replace('/')
     } else {
-
+        // const error = (await response.json()).errors;
+        alert(response.statusText);
     }
 }
 
