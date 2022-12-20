@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     const blogData = await Blog.findAll({
-      attributes: ['title', 'body', 'dateCreated'],
+      attributes: ['id','title', 'body', 'dateCreated'],
       include: { model: User, attributes: ['username'] }, // {exclude: ['password']}
       order: [['dateCreated', 'DESC']],
       raw: true,
@@ -26,7 +26,7 @@ router.get('/blog/:id', async (req, res) => {
 
   try {
     const blogData = await Blog.findByPk(id, {
-      attributes: ['title', 'body', 'dateCreated'],
+      attributes: ['id','title', 'body', 'dateCreated'],
       include: { model: User, attributes: ['username'] }, // {exclude: ['password']}
       raw: true,
       nest: true

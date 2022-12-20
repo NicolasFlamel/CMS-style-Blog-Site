@@ -2,7 +2,7 @@
 <ol>
     {{#each blogData}}
     <li class="blog">
-        <h2>{{this.title}}</h2>
+        <h2><a href="/blog/{{this.id}}">{{this.title}}</a></h2>
         <p>{{this.body}}</p>
         <p class="text-end"><b>Posted by {{this.user.username}} on {{formatDate this.dateCreated}}</b></p>
     </li>
