@@ -4,7 +4,7 @@
     <li>
         <h2>{{this.title}}</h2>
         <p>{{this.body}}</p>
-        <b>Posted by {{this.user.username}} on {{formatDate this.dateCreated}}</b>
+        <p class="text-end"><b>Posted by {{this.user.username}} on {{formatDate this.dateCreated}}</b></p>
     </li>
     {{/each}}
 </ol>
