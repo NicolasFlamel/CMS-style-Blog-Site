@@ -1,1 +1,10 @@
 <h1>Blog</h1>
+<ol>
+    {{#each blogData}}
+    <li>
+        <h2>{{this.title}}</h2>
+        <p>{{this.body}}</p>
+        <b>Posted by {{this.user.username}} on {{formatDate this.dateCreated}}</b>
+    </li>
+    {{/each}}
+</ol>

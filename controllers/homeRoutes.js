@@ -1,11 +1,20 @@
 const router = require('express').Router();
-const { Project, User } = require('../models');
+const { Blog, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
+    const blogData = await Blog.findAll({
+      include: { model: User },
+      raw: true,
+      nest: true
+    });
+
+    //console.log(blogData); // delete
+
     res.render('homepage', {
-      loggedIn: req.session.loggedIn
+      loggedIn: req.session.loggedIn,
+      blogData
     });
   } catch (err) {
     res.status(500).json(err);
@@ -14,7 +23,7 @@ router.get('/', async (req, res) => {
 
 router.get('/blog/:id', async (req, res) => {
   try {
-    
+
   } catch (err) {
     res.status(500).json(err);
   }
@@ -23,7 +32,7 @@ router.get('/blog/:id', async (req, res) => {
 
 router.get('/profile', withAuth, async (req, res) => {
   try {
-   
+
   } catch (err) {
     res.status(500).json(err);
   }
