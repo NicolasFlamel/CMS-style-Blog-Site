@@ -5,12 +5,11 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     const blogData = await Blog.findAll({
-      include: { model: User },
+      attributes: ['title', 'body', 'dateCreated'], 
+      include: { model: User, attributes: ['username'] }, // {exclude: ['password']}
       raw: true,
       nest: true
     });
-
-    //console.log(blogData); // delete
 
     res.render('homepage', {
       loggedIn: req.session.loggedIn,
