@@ -34,9 +34,9 @@ router.get('/blog/:id', async (req, res) => {
     });
 
     const commentData = await Comment.findAll({
-      attributes: ['id', 'message', 'dateCreated', 'userId', 'user.username'],
+      attributes: ['id', 'message', 'dateCreated', 'userID', 'user.username'],
       where: {
-        blogId: blogData.id
+        blogID: blogData.id
       },
       include: { model: User, attributes: [] },
       raw: true,
@@ -58,7 +58,9 @@ router.get('/blog/:id', async (req, res) => {
 
 
 router.get('/dashboard', withAuth, async (req, res) => {
+  const { userID } = req.session.userID
   try {
+
     res.render('dashboard', {
       loggedIn: req.session.loggedIn,
     });
