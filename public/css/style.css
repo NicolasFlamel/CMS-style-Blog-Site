@@ -3,6 +3,7 @@
     --secondary-color: #256D85;
     --tertiary-color: #47B5FF;
     --quaternary-color: #DFF6FF;
+    --border-styles: 5px solid var(--secondary-color);
 }
 
 h1,
@@ -15,12 +16,12 @@ a {
 
 body {
     margin: 5px;
-    background-color: var(--primary-color)
+    background-color: var(--primary-color);
 }
 
 nav {
     padding: 5px;
-    border: 5px solid var(--tertiary-color);
+    border: var(--border-styles);
 }
 
 main {
@@ -37,7 +38,7 @@ ol {
 .comment {
     padding: 5px;
     margin: 5px;
-    border: 5px solid var(--tertiary-color);
+    border: var(--border-styles);
 }
 
 #login-signup .btn {
