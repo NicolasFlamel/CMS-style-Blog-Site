@@ -9,7 +9,7 @@ User.hasMany(Blog, {
 });
 
 User.hasMany(Comment, {
-    foreignKey: 'userID',
+    foreignKey: 'userId',
     onDelete: 'CASCADE',
     as: 'userComments'
 });

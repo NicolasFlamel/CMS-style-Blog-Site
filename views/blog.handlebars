@@ -2,9 +2,18 @@
     <h2>{{blogData.title}}</h2>
     <p>{{blogData.body}}</p>
     <p class="text-end">
-        <b>Posted by {{blogData.user.username}} on {{blogData.dateCreated}}</b>
+        <b>Posted by {{blogData.username}} on {{formatDate blogData.dateCreated}}</b>
     </p>
 </section>
-<section class="comments">
-    
+<section id="comments" class="container">
+    <h2>Comments Section</h2>
+    <button class="btn-grad">Add a comment</button>
+    <ol>
+        {{#each commentData}}
+        <li class="comment">
+            <p class="user">User {{this.username}} commented</p>
+            <p class="message">{{this.message}}</p>
+        </li>
+        {{/each}}
+    </ol>
 </section>

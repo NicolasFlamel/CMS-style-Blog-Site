@@ -1,13 +1,16 @@
 :root {
-    --primary-color: #F0E9D2;
-    --secondary-color: #678983;
-    --tertiary-color: #181D31;
+    --primary-color: #06283D;
+    --secondary-color: #256D85;
+    --tertiary-color: #47B5FF;
+    --quaternary-color: #DFF6FF;
 }
 
 h1,
 h2,
-h3 {
-    color: var(--tertiary-color);
+h3,
+p,
+a {
+    color: var(--quaternary-color);
 }
 
 body {
@@ -20,13 +23,18 @@ nav {
     border: 5px solid var(--tertiary-color);
 }
 
+main {
+    margin-top: 10px;
+}
+
 ol {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
-.blog {
+.blog,
+.comment {
     padding: 5px;
     margin: 5px;
     border: 5px solid var(--tertiary-color);
@@ -34,4 +42,25 @@ ol {
 
 #login-signup .btn {
     margin: 5px;
+}
+
+.btn-grad {
+    background-image: linear-gradient(to right, #314755 0%, #26a0da 51%, #314755 100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: var(--quaternary-color);
+    box-shadow: 0 0 20px var(--primary-color);
+    border-radius: 10px;
+    display: block;
+}
+
+.btn-grad:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
 }
