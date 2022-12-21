@@ -58,11 +58,21 @@ router.get('/blog/:id', async (req, res) => {
 
 
 router.get('/dashboard', withAuth, async (req, res) => {
-  const { userID } = req.session.userID
+  const { userID } = req.session
   try {
+    const blogData = await Blog.findAll({
+      where: {
+        userID
+      },
+      attributes: ['id', 'title', 'dateCreated'],
+      raw: true
+    });
+
+    console.log(blogData);
 
     res.render('dashboard', {
       loggedIn: req.session.loggedIn,
+      blogData
     });
   } catch (err) {
     res.status(500).json(err);
