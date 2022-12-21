@@ -1,0 +1,27 @@
+[
+    {
+        "message": "wow",
+        "userId": "1",
+        "blogId": "1"
+    },
+    {
+        "message": "amazing",
+        "userId": "1",
+        "blogId": "1"
+    },
+    {
+        "message": "cool",
+        "userId": "2",
+        "blogId": "2"
+    },
+    {
+        "message": "interesting",
+        "userId": "2",
+        "blogId": "1"
+    },
+    {
+        "message": "groovy",
+        "userId": "1",
+        "blogId": "2"
+    }
+]

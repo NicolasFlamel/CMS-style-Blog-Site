@@ -1,0 +1,10 @@
+<h2>Your blogs</h2>
+<ol>
+    {{#each blogData}}
+    <li class="blog">
+        <h2><a href="/blog/{{this.id}}">{{this.title}}</a></h2>
+        <p>{{this.body}}</p>
+        <p class="text-end"><b>Posted on {{formatDate this.dateCreated}}</b></p>
+    </li>
+    {{/each}}
+</ol>

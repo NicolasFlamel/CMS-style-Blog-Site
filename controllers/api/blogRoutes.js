@@ -14,7 +14,7 @@ router.post('/', withAuth, async (req, res) => {
 // delete blog
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-  
+
   } catch (err) {
     res.status(500).json(err);
   }

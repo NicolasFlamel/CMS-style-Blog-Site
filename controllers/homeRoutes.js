@@ -1,15 +1,14 @@
 const router = require('express').Router();
-const { Blog, User } = require('../models');
+const { Blog, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
     const blogData = await Blog.findAll({
-      attributes: ['title', 'body', 'dateCreated'], 
-      include: { model: User, attributes: ['username'] }, // {exclude: ['password']}
+      attributes: ['id', 'title', 'body', 'dateCreated', 'user.username'],
+      include: { model: User, attributes: [] },
       order: [['dateCreated', 'DESC']],
       raw: true,
-      nest: true
     });
 
     res.render('homepage', {
@@ -22,9 +21,37 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/blog/:id', async (req, res) => {
-  try {
+  const { id } = req.params;
 
+  try {
+    const blogData = await Blog.findByPk(id, {
+      attributes: ['id', 'title', 'body', 'dateCreated', 'user.username'],
+      include: {
+        model: User,
+        attributes: ['username'],
+      },
+      raw: true,
+    });
+
+    const commentData = await Comment.findAll({
+      attributes: ['id', 'message', 'dateCreated', 'userId', 'user.username'],
+      where: {
+        blogId: blogData.id
+      },
+      include: { model: User, attributes: [] },
+      raw: true,
+    })
+
+    console.log(blogData);
+    console.log(commentData);
+
+    res.render('blog', {
+      loggedIn: req.session.loggedIn,
+      blogData,
+      commentData
+    })
   } catch (err) {
+    console.error('error');
     res.status(500).json(err);
   }
 });

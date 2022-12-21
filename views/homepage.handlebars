@@ -1,10 +1,10 @@
-<h1>Blog</h1>
+<h1 class="text-center">Recent Blogs</h1>
 <ol>
     {{#each blogData}}
-    <li>
-        <h2>{{this.title}}</h2>
+    <li class="blog">
+        <h2><a href="/blog/{{this.id}}">{{this.title}}</a></h2>
         <p>{{this.body}}</p>
-        <p class="text-end"><b>Posted by {{this.user.username}} on {{formatDate this.dateCreated}}</b></p>
+        <p class="text text-end"><b>Posted by {{this.username}} on {{formatDate this.dateCreated}}</b></p>
     </li>
     {{/each}}
 </ol>
