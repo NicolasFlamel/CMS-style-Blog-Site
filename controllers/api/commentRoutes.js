@@ -4,9 +4,15 @@ const withAuth = require('../../utils/auth');
 
 // create comment
 router.post('/', withAuth, async (req, res) => {
-    try {
+    const { userId } = req.session;
+    const { message, blogId } = req.body;
 
+    try {
+        const comment = await Comment.create({ message, userId, blogId })
+        console.log(comment);
+        res.json(comment);
     } catch (err) {
+        console.log('ping');
         res.status(400).json(err);
     }
 });
