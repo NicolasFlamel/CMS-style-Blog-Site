@@ -43,9 +43,6 @@ router.get('/blog/:id', async (req, res) => {
       raw: true,
     })
 
-    console.log(blogData);
-    console.log(commentData);
-
     res.render('blog', {
       loggedIn: req.session.loggedIn,
       blogData,
@@ -60,9 +57,8 @@ router.get('/blog/:id', async (req, res) => {
 
 router.get('/dashboard', withAuth, async (req, res) => {
   const { userId } = req.session
-  
+
   try {
-    console.log('error');
     const blogData = await Blog.findAll({
       where: {
         userId
@@ -70,12 +66,10 @@ router.get('/dashboard', withAuth, async (req, res) => {
       attributes: ['id', 'title', 'dateCreated'],
       raw: true
     });
-    const username = await User.findByPk(userId, {
+    const { username } = await User.findByPk(userId, {
       attributes: ['username'],
       raw: true
     })
-
-    console.log(username);
 
     res.render('dashboard', {
       loggedIn: req.session.loggedIn,
@@ -83,7 +77,6 @@ router.get('/dashboard', withAuth, async (req, res) => {
       username
     });
   } catch (err) {
-    console.log('error');
     res.status(500).json(err);
   }
 });

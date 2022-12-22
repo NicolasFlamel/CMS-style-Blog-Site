@@ -1,11 +1,32 @@
-<section id="user-blogs">
-    <h2>{{username}} blogs</h2>
-    <ol>
-        {{#each blogData}}
-        <li class="blog d-flex flex-wrap">
-            <h2><a href="/blog/{{this.id}}">{{this.title}}</a></h2>
-            <p>Posted on {{formatDate this.dateCreated}}</p>
-        </li>
-        {{/each}}
-    </ol>
-</section>
+<article class="dashboard">
+    <article class="add-blog">
+        <p>
+            <button class="btn-grad collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#new-blog"
+                aria-controls="new-blog">
+                Add a new blog
+            </button>
+        </p>
+        <div class="collapse" id="new-blog" style="">
+            <div class="card card-body">
+                <form id="login-form">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" id="title" class="form-control">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" rows="5"></textarea>
+                    <input type="submit" value="Post" id="login-btn" class="btn-grad">
+                </form>
+            </div>
+        </div>
+    </article>
+    <section id="user-blogs">
+        <h2>{{username}}'s blogs</h2>
+        <ol>
+            {{#each blogData}}
+            <li class="blog d-flex flex-wrap">
+                <h2><a href="/blog/{{this.id}}">{{this.title}}</a></h2>
+                <p>Posted on {{formatDate this.dateCreated}}</p>
+            </li>
+            {{/each}}
+        </ol>
+    </section>
+</article>
