@@ -1,4 +1,4 @@
-<section class="blog">
+<section class="blog" data-id="{{blogData.id}}">
     <h2>{{blogData.title}}</h2>
     <p>{{blogData.body}}</p>
     <p class="text-end">
@@ -7,7 +7,25 @@
 </section>
 <section id="comments" class="container">
     <h2>Comments Section</h2>
-    <button class="btn-grad">Add a comment</button>
+    {{#if loggedIn}}
+    <article class="add-comment">
+        <p>
+            <button class="btn-grad collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#new-comment"
+                aria-controls="new-comment">
+                Add a comment
+            </button>
+        </p>
+        <div class="collapse" id="new-comment" style="">
+            <div class="card card-body">
+                <form id="comment-post-form">
+                    <label for="comment-message" class="form-label">Message</label>
+                    <textarea class="form-control" id="comment-message" rows="5"></textarea>
+                    <input type="submit" value="Post" id="comment-post-btn" class="btn-grad">
+                </form>
+            </div>
+        </div>
+    </article>
+    {{/if}}
     <ol>
         {{#each commentData}}
         <li class="comment">
@@ -17,3 +35,7 @@
         {{/each}}
     </ol>
 </section>
+
+{{#if loggedIn}}
+<script src="/js/comment.js"></script>
+{{/if}}
