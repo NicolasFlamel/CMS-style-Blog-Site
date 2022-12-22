@@ -30,7 +30,7 @@ Blog.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    userID: {
+    userId: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',

@@ -1,27 +1,32 @@
 [
     {
         "message": "wow",
-        "userID": "1",
-        "blogID": "1"
+        "userId": "1",
+        "blogId": "1",
+        "dateCreated": "2022-12-21T21:53:04.000Z"
     },
     {
         "message": "amazing",
-        "userID": "1",
-        "blogID": "1"
+        "userId": "1",
+        "blogId": "1",
+        "dateCreated": "2022-12-20T21:53:04.000Z"
     },
     {
         "message": "cool",
-        "userID": "2",
-        "blogID": "2"
+        "userId": "2",
+        "blogId": "2",
+        "dateCreated": "2022-12-01T21:53:04.000Z"
     },
     {
         "message": "interesting",
-        "userID": "2",
-        "blogID": "1"
+        "userId": "2",
+        "blogId": "1",
+        "dateCreated": "2022-11-25T21:53:04.000Z"
     },
     {
-        "message": "groovy",
-        "userID": "1",
-        "blogID": "2"
+        "message": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio voluptas aliquid voluptatem cumque aspernatur, reiciendis repellat! Accusantium, fuga, provident, magnam quae repudiandae neque dolore cumque quisquam non ipsam dignissimos architecto.",
+        "userId": "1",
+        "blogId": "2",
+        "dateCreated": "2022-01-25T21:53:04.000Z"
     }
 ]

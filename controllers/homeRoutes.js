@@ -34,16 +34,14 @@ router.get('/blog/:id', async (req, res) => {
     });
 
     const commentData = await Comment.findAll({
-      attributes: ['id', 'message', 'dateCreated', 'userID', 'user.username'],
+      attributes: ['id', 'message', 'dateCreated', 'userId', 'user.username'],
       where: {
-        blogID: blogData.id
+        blogId: blogData.id
       },
       include: { model: User, attributes: [] },
+      order: [['dateCreated', 'DESC']],
       raw: true,
     })
-
-    console.log(blogData);
-    console.log(commentData);
 
     res.render('blog', {
       loggedIn: req.session.loggedIn,
@@ -58,21 +56,26 @@ router.get('/blog/:id', async (req, res) => {
 
 
 router.get('/dashboard', withAuth, async (req, res) => {
-  const { userID } = req.session
+  const { userId } = req.session
+
   try {
     const blogData = await Blog.findAll({
       where: {
-        userID
+        userId
       },
       attributes: ['id', 'title', 'dateCreated'],
+      order: [['dateCreated', 'DESC']],
       raw: true
     });
-
-    console.log(blogData);
+    const { username } = await User.findByPk(userId, {
+      attributes: ['username'],
+      raw: true
+    })
 
     res.render('dashboard', {
       loggedIn: req.session.loggedIn,
-      blogData
+      blogData,
+      username
     });
   } catch (err) {
     res.status(500).json(err);

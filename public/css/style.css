@@ -4,14 +4,22 @@
     --tertiary-color: #47B5FF;
     --quaternary-color: #DFF6FF;
     --border-styles: 5px solid var(--secondary-color);
+    --bs-card-bg: #06283D;
 }
 
 h1,
 h2,
 h3,
 p,
-a {
+a,
+label {
     color: var(--quaternary-color);
+}
+
+.card {
+    margin: 0px 5px 10px; /* top | left and right | bottom */
+    background-color: var(--primary-color);
+    border: var(--border-styles)
 }
 
 body {
@@ -36,17 +44,27 @@ ol {
 
 .blog,
 .comment {
-    padding: 5px;
+    padding: 20px 30px;
     margin: 5px;
     border: var(--border-styles);
+}
+
+.comment .message {
+    padding: 10px;
+    background-color: var(--secondary-color);
 }
 
 #login-signup .btn {
     margin: 5px;
 }
 
-#user-blogs li{
+#user-blogs li {
     justify-content: space-between;
+}
+
+.add-blog p {
+    display: flex;
+    justify-content: center
 }
 
 .btn-grad {

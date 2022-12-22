@@ -11,7 +11,7 @@
     <ol>
         {{#each commentData}}
         <li class="comment">
-            <p class="user">User {{this.username}} commented</p>
+            <p class="user">User {{this.username}} commented on {{formatDate this.dateCreated}}</p>
             <p class="message">{{this.message}}</p>
         </li>
         {{/each}}
