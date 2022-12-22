@@ -19,13 +19,32 @@
         </div>
     </article>
     <section id="user-blogs">
-        <h2>{{username}}'s blogs</h2>
+        <h2>{{this.username}}'s blogs</h2>
         <ol>
             {{#each blogData}}
             <li class="blog d-flex flex-wrap">
-                <h2><a href="/blog/{{this.id}}">{{this.title}}</a></h2>
+                <p>
+                    <button class="btn-grad collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#blog-{{this.id}}" aria-controls="blog-{{this.id}}">
+                        {{this.title}}
+                    </button>
+                </p>
                 <p>Posted on {{formatDate this.dateCreated}}</p>
             </li>
+            <div class="collapse" id="blog-{{this.id}}" style="">
+                <div class="card card-body">
+                    <form class="blog-edit-form" data-id="{{this.id}}">
+                        <label for="title-{{this.id}}" class="form-label">Title</label>
+                        <input type="text" id="title-{{this.id}}" class="form-control" value="{{this.title}}">
+                        <label for="message-{{this.id}}" class="form-label">Message</label>
+                        <textarea class="form-control" id="message-{{this.id}}" rows="5">{{this.body}}</textarea>
+                        <section class="edit-btn">
+                            <input type="submit" value="Update" class="btn-grad">
+                            <button type="button" class="btn-grad" data-id="{{this.id}}">Delete</button>
+                        </section>
+                    </form>
+                </div>
+            </div>
             {{/each}}
         </ol>
     </section>

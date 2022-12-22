@@ -17,7 +17,8 @@ label {
 }
 
 .card {
-    margin: 0px 5px 10px; /* top | left and right | bottom */
+    margin: 0px 5px 10px;
+    /* top | left and right | bottom */
     background-color: var(--primary-color);
     border: var(--border-styles)
 }
@@ -62,7 +63,8 @@ ol {
     justify-content: space-between;
 }
 
-.add-blog p {
+.add-blog p,
+.edit-btn {
     display: flex;
     justify-content: center
 }
