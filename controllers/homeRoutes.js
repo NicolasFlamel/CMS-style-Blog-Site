@@ -39,6 +39,7 @@ router.get('/blog/:id', async (req, res) => {
         blogID: blogData.id
       },
       include: { model: User, attributes: [] },
+      order: [['dateCreated', 'DESC']],
       raw: true,
     })
 

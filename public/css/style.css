@@ -41,6 +41,15 @@ ol {
     border: var(--border-styles);
 }
 
+.comment {
+    padding: 20px 30px;
+}
+
+.comment .message {
+    padding: 10px;
+    background-color: var(--secondary-color);
+}
+
 #login-signup .btn {
     margin: 5px;
 }
