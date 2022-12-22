@@ -64,6 +64,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
         userId
       },
       attributes: ['id', 'title', 'dateCreated'],
+      order: [['dateCreated', 'DESC']],
       raw: true
     });
     const { username } = await User.findByPk(userId, {
