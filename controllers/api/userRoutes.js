@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
     const newUser = await User.create({ username, password });
 
     req.session.save(() => {
-      req.session.userID = newUser.id;
+      req.session.userId = newUser.id;
       req.session.loggedIn = true;
       res.json({ newUser })
     });
@@ -28,7 +28,7 @@ router.post('/login', async (req, res) => {
 
     if (user && user.checkPassword(password)) {
       req.session.save(() => {
-        req.session.userID = user.id;
+        req.session.userId = user.id;
         req.session.loggedIn = true;
         res.json({ user })
       });

@@ -23,14 +23,14 @@ Comment.init(
             allowNull: false,
             defaultValue: DataTypes.NOW,
         },
-        userID: {
+        userId: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'user',
                 key: 'id',
             },
         },
-        blogID: {
+        blogId: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'blog',

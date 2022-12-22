@@ -36,13 +36,9 @@ ol {
 
 .blog,
 .comment {
-    padding: 5px;
+    padding: 20px 30px;
     margin: 5px;
     border: var(--border-styles);
-}
-
-.comment {
-    padding: 20px 30px;
 }
 
 .comment .message {
