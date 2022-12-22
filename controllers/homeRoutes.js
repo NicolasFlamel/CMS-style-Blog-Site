@@ -28,7 +28,7 @@ router.get('/blog/:id', async (req, res) => {
       attributes: ['id', 'title', 'body', 'dateCreated', 'user.username'],
       include: {
         model: User,
-        attributes: ['username'],
+        attributes: [],
       },
       raw: true,
     });
@@ -47,7 +47,7 @@ router.get('/blog/:id', async (req, res) => {
       loggedIn: req.session.loggedIn,
       blogData,
       commentData
-    })
+    });
   } catch (err) {
     console.error('error');
     res.status(500).json(err);
@@ -63,14 +63,14 @@ router.get('/dashboard', withAuth, async (req, res) => {
       where: {
         userId
       },
-      attributes: ['id', 'title', 'dateCreated'],
+      attributes: ['id', 'title', 'body', 'dateCreated'],
       order: [['dateCreated', 'DESC']],
       raw: true
     });
     const { username } = await User.findByPk(userId, {
       attributes: ['username'],
       raw: true
-    })
+    });
 
     res.render('dashboard', {
       loggedIn: req.session.loggedIn,
