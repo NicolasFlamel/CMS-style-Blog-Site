@@ -21,14 +21,14 @@ User.init(
       allowNull: false,
       unique: true,
       validate: {
-        len: [3,20]
-      }
+        len: [3, 20],
+      },
     },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [8,32],
+        len: [8, 32],
       },
     },
   },
@@ -39,7 +39,10 @@ User.init(
         return newUserData;
       },
       beforeUpdate: async (updatedUserData) => {
-        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+        updatedUserData.password = await bcrypt.hash(
+          updatedUserData.password,
+          10
+        );
         return updatedUserData;
       },
     },

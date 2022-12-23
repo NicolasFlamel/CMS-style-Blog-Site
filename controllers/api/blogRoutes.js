@@ -27,10 +27,10 @@ router.put('/:id', withAuth, async (req, res) => {
     if (userId === blogData.userId) {
       blogData.update({ title, content });
     } else {
-      throw 'user and poster does not match'
+      throw 'user and poster does not match';
     }
 
-    res.json(blogData)
+    res.json(blogData);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -42,15 +42,15 @@ router.delete('/:id', withAuth, async (req, res) => {
   const { userId } = req.session;
 
   try {
-    const blogData = await Blog.findByPk(id)
+    const blogData = await Blog.findByPk(id);
 
     if (userId === blogData.userId) {
       blogData.destroy();
     } else {
-      throw 'user and poster does not match'
+      throw 'user and poster does not match';
     }
 
-    res.json(blogData)
+    res.json(blogData);
   } catch (err) {
     res.status(500).json(err);
   }

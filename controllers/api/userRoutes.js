@@ -11,7 +11,7 @@ router.post('/', async (req, res) => {
     req.session.save(() => {
       req.session.userId = newUser.id;
       req.session.loggedIn = true;
-      res.json({ newUser })
+      res.json({ newUser });
     });
   } catch (err) {
     res.status(400).json(err);
@@ -23,20 +23,18 @@ router.post('/login', async (req, res) => {
   const { username, password } = req.body;
   try {
     const user = await User.findOne({
-      where: { username }
+      where: { username },
     });
 
     if (user && user.checkPassword(password)) {
       req.session.save(() => {
         req.session.userId = user.id;
         req.session.loggedIn = true;
-        res.json({ user })
+        res.json({ user });
       });
-    }
-    else {
+    } else {
       res.status(401).json({ message: 'Incorrect username or password' });
     }
-
   } catch (err) {
     res.status(400).json(err);
   }
