@@ -41,9 +41,9 @@
                 </p>
                 <div class="collapse" id="comment-{{this.id}}" style="">
                     <div class="card card-body">
-                        <form id="comment-post-form">
-                            <label for="comment-message" class="form-label">Message</label>
-                            <textarea class="form-control" id="comment-message" rows="5">{{this.message}}</textarea>
+                        <form id="comment-edit-form" data-id="{{this.id}}">
+                            <label for="comment-message-{{this.id}}" class="form-label">Message</label>
+                            <textarea class="form-control" id="comment-message-{{this.id}}" rows="5">{{this.message}}</textarea>
                             <section class="edit-btn">
                                 <input type="submit" value="Update" class="btn-grad">
                                 <button type="button" class="btn-grad" data-id="{{this.id}}">Delete</button>

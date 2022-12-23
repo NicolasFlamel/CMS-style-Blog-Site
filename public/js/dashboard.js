@@ -42,7 +42,6 @@ const deleteBlog = async event => {
 
     const response = await fetch(url, {
         method: 'DELETE',
-        body: JSON.stringify({ id }),
         headers: { 'Content-Type': 'application/json' },
     });
 
