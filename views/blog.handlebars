@@ -31,6 +31,28 @@
         <li class="comment">
             <p class="user">User {{this.username}} commented on {{formatDate this.dateCreated}}</p>
             <p class="message">{{this.message}}</p>
+            {{#if (sameUser @root.userId this.userId) }}
+            <article class="edit-comment">
+                <p>
+                    <button class="btn-grad collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#comment-{{this.id}}" aria-controls="comment-{{this.id}}">
+                        Edit Comment
+                    </button>
+                </p>
+                <div class="collapse" id="comment-{{this.id}}" style="">
+                    <div class="card card-body">
+                        <form id="comment-edit-form" data-id="{{this.id}}">
+                            <label for="comment-message-{{this.id}}" class="form-label">Message</label>
+                            <textarea class="form-control" id="comment-message-{{this.id}}" rows="5">{{this.message}}</textarea>
+                            <section class="edit-btn">
+                                <input type="submit" value="Update" class="btn-grad">
+                                <button type="button" class="btn-grad" data-id="{{this.id}}">Delete</button>
+                            </section>
+                        </form>
+                    </div>
+                </div>
+            </article>
+            {{/if}}
         </li>
         {{/each}}
     </ol>

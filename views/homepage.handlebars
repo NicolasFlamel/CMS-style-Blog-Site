@@ -3,7 +3,7 @@
     {{#each blogData}}
     <li class="blog">
         <h2><a href="/blog/{{this.id}}">{{this.title}}</a></h2>
-        <p>{{this.body}}</p>
+        <p>{{this.content}}</p>
         <p class="text text-end"><b>Posted by {{this.username}} on {{formatDate this.dateCreated}}</b></p>
     </li>
     {{/each}}

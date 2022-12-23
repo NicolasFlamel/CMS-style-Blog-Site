@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     const blogData = await Blog.findAll({
-      attributes: ['id', 'title', 'body', 'dateCreated', 'user.username'],
+      attributes: ['id', 'title', 'content', 'dateCreated', 'user.username'],
       include: { model: User, attributes: [] },
       order: [['dateCreated', 'DESC']],
       raw: true,
@@ -22,10 +22,11 @@ router.get('/', async (req, res) => {
 
 router.get('/blog/:id', async (req, res) => {
   const { id } = req.params;
+  let user
 
   try {
     const blogData = await Blog.findByPk(id, {
-      attributes: ['id', 'title', 'body', 'dateCreated', 'user.username'],
+      attributes: ['id', 'title', 'content', 'dateCreated', 'user.username'],
       include: {
         model: User,
         attributes: [],
@@ -45,6 +46,7 @@ router.get('/blog/:id', async (req, res) => {
 
     res.render('blog', {
       loggedIn: req.session.loggedIn,
+      userId: req.session.userId,
       blogData,
       commentData
     });
@@ -63,7 +65,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
       where: {
         userId
       },
-      attributes: ['id', 'title', 'body', 'dateCreated'],
+      attributes: ['id', 'title', 'content', 'dateCreated'],
       order: [['dateCreated', 'DESC']],
       raw: true
     });

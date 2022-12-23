@@ -18,7 +18,7 @@ Blog.init(
         len: [1, 70]
       },
     },
-    body: {
+    content: {
       type: DataTypes.TEXT,
       allowNull: false,
       validate: {
