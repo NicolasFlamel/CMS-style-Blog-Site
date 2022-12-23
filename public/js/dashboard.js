@@ -1,11 +1,11 @@
 const postBlog = async event => {
     event.preventDefault();
     const title = document.querySelector('#title').value.trim();
-    const body = document.querySelector('#message').value.trim();
+    const content = document.querySelector('#message').value.trim();
 
     const response = await fetch('/api/blogs', {
         method: 'POST',
-        body: JSON.stringify({ title, body }),
+        body: JSON.stringify({ title, content }),
         headers: { 'Content-Type': 'application/json' },
     });
 
@@ -21,11 +21,11 @@ const updateBlog = async event => {
     const { id } = event.target.dataset;
     const url = '/api/blogs/' + id;
     const title = event.target.querySelector('#title-' + id).value.trim();
-    const body = event.target.querySelector('#message-' + id).value.trim();
+    const content = event.target.querySelector('#message-' + id).value.trim();
 
     const response = await fetch(url, {
         method: 'PUT',
-        body: JSON.stringify({ title, body }),
+        body: JSON.stringify({ title, content }),
         headers: { 'Content-Type': 'application/json' },
     });
 

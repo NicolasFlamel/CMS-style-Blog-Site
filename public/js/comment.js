@@ -18,4 +18,20 @@ const addComment = async event => {
     }
 }
 
-document.querySelector('#comment-post-form').addEventListener('submit', addComment)
+const updateComment = async event => {
+    event.preventDefault();
+    const url = '/api/comments'
+}
+
+const deleteComment = async event => {
+    event.preventDefault();
+
+}
+
+document.querySelector('#comment-post-form').addEventListener('submit', addComment);
+
+document.querySelectorAll('.blog-edit-form')
+    .forEach(blog => blog.addEventListener('submit', updateComment));
+
+document.querySelectorAll('.blog-edit-form button')
+    .forEach(blog => blog.addEventListener('click', deleteComment));
