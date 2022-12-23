@@ -22,6 +22,7 @@ router.get('/', async (req, res) => {
 
 router.get('/blog/:id', async (req, res) => {
   const { id } = req.params;
+  let user
 
   try {
     const blogData = await Blog.findByPk(id, {
@@ -45,6 +46,7 @@ router.get('/blog/:id', async (req, res) => {
 
     res.render('blog', {
       loggedIn: req.session.loggedIn,
+      userId: req.session.userId,
       blogData,
       commentData
     });

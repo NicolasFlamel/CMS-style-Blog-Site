@@ -9,10 +9,9 @@ router.post('/', withAuth, async (req, res) => {
 
     try {
         const comment = await Comment.create({ message, userId, blogId })
-        console.log(comment);
+
         res.json(comment);
     } catch (err) {
-        console.log('ping');
         res.status(400).json(err);
     }
 });
